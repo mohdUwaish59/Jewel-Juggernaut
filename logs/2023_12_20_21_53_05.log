@@ -1,0 +1,4 @@
+[2023-12-20 21:55:02,354] 24 root - ERROR - An unexpected error occurred: PredictPipeline.__init__() missing 1 required positional argument: 'config'
+[2023-12-20 21:55:28,156] 24 root - ERROR - An unexpected error occurred: PredictPipeline.__init__() missing 1 required positional argument: 'config'
+[2023-12-20 21:55:29,272] 24 root - ERROR - An unexpected error occurred: PredictPipeline.__init__() missing 1 required positional argument: 'config'
+[2023-12-20 21:55:57,184] 24 root - ERROR - An unexpected error occurred: PredictPipeline.__init__() missing 1 required positional argument: 'config'

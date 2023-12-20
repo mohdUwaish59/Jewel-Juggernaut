@@ -12,6 +12,7 @@ from dataclasses import dataclass
 class DataIngestionConfig:
     train_data_path = os.path.join('artifacts', 'train.csv')
     test_data_path = os.path.join('artifacts', 'test.csv')
+    cv_data_path = os.path.join('artifacts', 'cv.csv')
     raw_data_path = os.path.join('artifacts', 'raw.csv')
 
 class DataIngestion:
@@ -30,14 +31,24 @@ class DataIngestion:
             df = df.drop(columns=['Unnamed: 0'], axis=1)
 
             logging.info('Starting Train Test Split')
+
+            
             train_set, test_set = train_test_split(df, test_size=0.30, random_state=42)
-            train_set.to_csv(self.ingestion_config.train_data_path, index = False, header = True)
-            test_set.to_csv(self.ingestion_config.test_data_path, index = False, header = True)
+            train_set, cv_set = train_test_split(train_set, test_size=0.20, random_state=42)
+
+            train_set.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
+            test_set.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
+            cv_set.to_csv(self.ingestion_config.cv_data_path, index=False, header=True)
+
+
+            #train_set, test_set = train_test_split(df, test_size=0.30, random_state=42)
+            #train_set.to_csv(self.ingestion_config.train_data_path, index = False, header = True)
+            #test_set.to_csv(self.ingestion_config.test_data_path, index = False, header = True)
 
             logging.info('Train Test Split completed')
             logging.info('Data Ingestion completed')
 
-            return (self.ingestion_config.train_data_path, self.ingestion_config.test_data_path)
+            return (self.ingestion_config.train_data_path, self.ingestion_config.test_data_path, self.ingestion_config.cv_data_path)
 
 
         except Exception as e:

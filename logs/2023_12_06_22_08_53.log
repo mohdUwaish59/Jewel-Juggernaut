@@ -1,5 +1,0 @@
-[2023-12-06 22:08:54,539] 22 root - INFO - initiate_data_ingestion: Data Ingestion method starts
-[2023-12-06 22:08:54,602] 26 root - INFO - Pandas dataframe is ready
-[2023-12-06 22:08:54,778] 32 root - INFO - Starting Train Test Split
-[2023-12-06 22:08:54,928] 37 root - INFO - Train Test Split completed
-[2023-12-06 22:08:54,928] 38 root - INFO - Data Ingestion completed

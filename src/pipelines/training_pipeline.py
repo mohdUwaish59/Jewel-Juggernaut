@@ -13,11 +13,11 @@ from src.components.model_trainer import ModelTrainer
 
 if __name__ == '__main__':
     data_ingestion_obj = DataIngestion()
-    train_data_path, test_data_path = data_ingestion_obj.initiate_data_ingestion()
-    print(train_data_path, test_data_path)
+    train_data_path, test_data_path, cv_data_path = data_ingestion_obj.initiate_data_ingestion()
+    print(train_data_path, test_data_path, cv_data_path)
 
     data_transformation_obj  = DataTransformation()
-    train_arr, test_arr = data_transformation_obj.initiate_data_transformation(train_path=train_data_path, test_path=test_data_path)
+    train_arr, test_arr, cv_arr = data_transformation_obj.initiate_data_transformation(train_path=train_data_path, test_path=test_data_path, cv_path = cv_data_path )
 
     model_trainer = ModelTrainer()
-    model_trainer.initiate_model_training(train_arr=train_arr, test_arr=test_arr)
+    model_trainer.initiate_model_training(train_arr=train_arr, test_arr=test_arr, cv_arr = cv_arr)
